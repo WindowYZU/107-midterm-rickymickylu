@@ -101,7 +101,7 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             jButton1.setEnabled(false);
             //從 combobox 抓出被選到的項目，存到變數裡
-            String selectedItem="";
+            String selectedItem=(String) jComboBox1.getSelectedItem();
             /////////////////////////////////////
             URL url = new URL(selectedItem);
             String fileName = url.getFile();
@@ -118,7 +118,9 @@ public class NewJFrame extends javax.swing.JFrame {
                         progress.setVisible(false);
                         jButton1.setEnabled(true);
                         //將下載好的項目加入到 jList 裡面
-                        
+                        DefaultListModel model=(DefaultListModel) jList1.getModel();
+                        model.addElement(jComboBox1.getSelectedItem());
+                        jList1.updateUI();
                         ////////////////////////////
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
@@ -126,6 +128,10 @@ public class NewJFrame extends javax.swing.JFrame {
                                 try {
                                     URL fileURL=tempFile.toURI().toURL();
                                     //利用 fileURL 將 image icon 加到 jLabel2
+                                    ImageIcon icon=new ImageIcon(fileURL);
+                                    Image img=icon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+                                    ImageIcon icon2=new ImageIcon(img);
+                                    jLabel2.setIcon(icon2);
                                     ////////////////////////////////////////
                                     jList1.updateUI();
                                 } catch (Exception ex) {
