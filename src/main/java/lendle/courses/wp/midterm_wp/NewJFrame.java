@@ -131,7 +131,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     URL fileURL=tempFile.toURI().toURL();
                                     //利用 fileURL 將 image icon 加到 jLabel2
                                     ImageIcon icon=new ImageIcon(fileURL);
-                                    Image img=icon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+                                    Image img=icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                                     ImageIcon icon2=new ImageIcon(img);
                                     jLabel2.setIcon(icon2);
                                     ////////////////////////////////////////
