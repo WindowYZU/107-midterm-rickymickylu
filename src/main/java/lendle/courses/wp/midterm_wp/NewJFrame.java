@@ -118,7 +118,9 @@ public class NewJFrame extends javax.swing.JFrame {
                         progress.setVisible(false);
                         jButton1.setEnabled(true);
                         //將下載好的項目加入到 jList 裡面
-                        DefaultListModel model=(DefaultListModel) jList1.getModel();
+                        DefaultListModel model=new DefaultListModel();
+                        jList1.setModel(model);
+                        //DefaultListModel model=(DefaultListModel) jList1.getModel();
                         model.addElement(jComboBox1.getSelectedItem());
                         jList1.updateUI();
                         ////////////////////////////
@@ -134,6 +136,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     jLabel2.setIcon(icon2);
                                     ////////////////////////////////////////
                                     jList1.updateUI();
+                                    jLabel2.updateUI();
                                 } catch (Exception ex) {
                                     Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                                 }
